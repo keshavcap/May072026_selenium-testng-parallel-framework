@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!--
+    parallel="tests"  -> each <test> tag runs in its own thread
+    thread-count="3"  -> up to 3 <test> tags execute simultaneously
+    Each <test> below targets a different browser, so all three browsers run together.
+-->
+<suite name="Cross-Browser Parallel Suite" parallel="tests" thread-count="3" verbose="1">
+
+    <listeners>
+        <listener class-name="com.framework.listeners.TestListener"/>
+    </listeners>
+
+    <test name="Chrome Tests">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.framework.tests.HomePageTest"/>
+            <class name="com.framework.tests.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Firefox Tests">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="com.framework.tests.HomePageTest"/>
+            <class name="com.framework.tests.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Edge Tests">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="com.framework.tests.HomePageTest"/>
+            <class name="com.framework.tests.LoginTest"/>
+        </classes>
+    </test>
+
+</suite>
